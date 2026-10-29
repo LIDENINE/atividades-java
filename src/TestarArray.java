@@ -1,20 +1,21 @@
 public class TestarArray {
-    static void main() {
+    public static void main(String[] args){
         Carro[] garagem = new Carro[3];
-        garagem[0] = new Carro("Toyota","4 portas",2002);
-        garagem[1] = new Carro("Tesla","Ruster",2026);
-        garagem[2] = new Carro("Brasilha","Motor Dianteiro",1968);
 
-        for (int i = 0; i < garagem.length; i++) {
-            System.out.println("Carro "+ (i+1) + ":");
-            System.out.println("Marca: " + garagem[i].getMarca());
-            System.out.println("Modelo: " + garagem[i].getModelo());
-            System.out.println("Ano: "+ garagem[i].getAno());
-            System.out.println("------------------------");
+        garagem[0] = new Carro("Toyota","Corolla",2022);
+        garagem[1] = new Carro("Honda","Civic",2021);
+        garagem[2] = new Carro("Ford","Ka",2019);
+
+        for (Carro c: garagem){
+            System.out.println("Marca: "+ c.getMarca() + " | Modelo: " + c.getModelo() + " | Ano - "+ c.getAno());
         }
 
         Carro meuCarro = garagem[0];
         meuCarro.setAno(2025);
-        System.out.println(garagem[0].setAno());
+        System.out.println(garagem[0].getAno());
+        //O valor mostrado no console é 2025, pois quando atribuimos o valor de garagem[0] para meuCarro, copiamos apenas a Referência do Objeto
+        // Nenhuma variável armazena um Objeto em Java. O valor contido é um "endereço" do Objeto. Assim, quando alteramos o atributo "ano" da variável "MeuCarro", na realidade alteramos o valor do atributo do Objeto que a Referência aponta.
+
+
     }
 }
