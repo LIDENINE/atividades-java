@@ -1,3 +1,4 @@
+import java.lang.classfile.constantpool.Utf8Entry;
 import java.util.Objects;
 
 public class ItemPedido {
@@ -47,13 +48,22 @@ public class ItemPedido {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return ture;
-        if (obj == null | getClass() != obj.getClass()) return false;
+        if (this == obj){
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
         ItemPedido outro = (ItemPedido) obj;
         return Objects.equals(this.getCodigo(), outro.getCodigo());
     }
 
     public double getSubtotal(){
         return this.precoUnitario * this.qnt;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s (%d)| Unid: R$ %.2f | Subtotal R$ %.2f\n", nome, qnt, precoUnitario, getSubtotal());
     }
 }
